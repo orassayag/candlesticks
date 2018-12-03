@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 88%;
+    .label {
+        margin-top: 1em;
+        display: inline-block;
+        -webkit-transition: background-color .3s, border-color .3s;
+        transition: background-color .3s, border-color .3s;
+        padding: .867em 1.33em;
+        border-radius: 7px;
+        line-height: 1;
+        color: #ffffff;
+        &.connected {
+            background: #3cb371;
+        }
+        &.disconnected, &.error {
+            background: #ce1632;
+        }
+    }
+    .control-panel {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 30em;
+        &.single {
+            width: 15em;
+        }
+        .row {
+            flex: 1 0 0em;
+            &.margin {
+                margin-top: 1.2em;
+            }
+        }
+    }
+}

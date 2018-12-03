@@ -1,0 +1,15 @@
+Note: the solution is separated to client and server projects, to keep things clear.
+
+1. Open the server project on the IDE (I used VS CODE).
+2. On the terminal: npm i (and wait to download all node_moudles folder).
+3. Once finished, on the terminal: node index.js
+4. Open the client project on another IDE.
+5. On the terminal: npm i (again, wait to download all node_moudles folder).
+6. Once finished, on the terminal: npm start
+7. Wait 10 seconds once you see the loading animation to collect enough data for the first candlestick.
+8. Happy testing :)
+
+Application main features:
+1. Candlesticks will create automatically when is .
+2. After 30 seconds, the user can change the interval (10,30) seconds.
+3. After 30 chunks of data received by the server, a button of latests candlesticks will be displayed, gettings last candlesticks from the server.

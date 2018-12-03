@@ -1,0 +1,34 @@
+{
+    "env": {
+        "es6": true,
+        "jest": true
+    },
+    "extends": ["eslint:recommended"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "js": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "never"],
+        "no-shadow": [
+            "error",
+            {
+                "builtinGlobals": false,
+                "hoist": "functions",
+                "allow": []
+            }
+        ],
+        "no-useless-escape": 0
+    }
+}
