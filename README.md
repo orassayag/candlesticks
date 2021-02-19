@@ -8,10 +8,10 @@ React + Node.js (Websocket + Express) application to create candlesticks (Price 
 Clone the project to your computer.
 Steps to view the solution:
 1. Open the server project on the IDE (I used VS CODE).
-2. On the terminal: npm i (and wait to download all node_moudles folder).
+2. On the terminal: npm i (and wait to download all node_modules folder).
 3. Once finished, on the terminal: node index.js
 4. Open the client project on another IDE.
-5. On the terminal: npm i (again, wait to download all node_moudles folder).
+5. On the terminal: npm i (again, wait to download all node_modules folder).
 6. Once finished, on the terminal: npm start
 7. Wait 10 seconds once you see the loading animation to collect enough data for the first candlestick.
 8. Happy testing :)
@@ -33,10 +33,14 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
-## Authors
+## Author
 
 * **Or Assayag** - *Initial work* - [orassayag](https://github.com/orassayag)
+* Or Assayag <orassayag@gmail.com>
+* GitHub: https://github.com/orassayag
+* StackOverFlow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+* LinkedIn: https://il.linkedin.com/in/orassayag
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This application has UNLICENSED License.

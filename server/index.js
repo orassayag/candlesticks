@@ -7,7 +7,7 @@ const app = express();
 require('./startup/logging')();
 require('./startup/general')(app);
 const { initDataCreator, reCalculateCandlesticks } = require('./startup/dataHandler');
-const server  = require('http').createServer(app);
+const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 initDataCreator(app);
 
@@ -19,7 +19,7 @@ server.listen(port, () => {
     initSocket(io);
     createSendDataInterval(app, io);
     require('./startup/routes')(app, io, {
-        createSendDataInterval:  createSendDataInterval,
+        createSendDataInterval: createSendDataInterval,
         reCalculateCandlesticks: reCalculateCandlesticks
     });
 });

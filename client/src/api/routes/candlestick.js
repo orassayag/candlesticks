@@ -5,7 +5,7 @@ export const updateInterval = async (selectedInterval) => {
     let newDisplayData = null;
     try {
         newDisplayData = await api.post(`api/data/updateInterval?interval=${selectedInterval}`);
-    } catch (err) {}
+    } catch (err) { }
     return newDisplayData;
 };
 
@@ -14,6 +14,6 @@ export const getHistoryData = async (historyTimestamp) => {
     let newDisplayData = null;
     try {
         newDisplayData = await api.get(`api/data/getHistoryData?timestamp=${historyTimestamp}`);
-    } catch (err) {}
+    } catch (err) { }
     return newDisplayData;
 };
