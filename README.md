@@ -1,7 +1,6 @@
 # Candlesticks
 
-Built in December 2018.
-React + Node.js (Websocket + Express) application to create candlesticks (Price chart) by intervals.
+Built in December 2018. React.js + Node.js (Websocket + Express) application to create candlesticks (Price chart) by intervals.
 
 ## Getting Started
 
