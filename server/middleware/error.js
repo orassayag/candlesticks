@@ -6,6 +6,6 @@ module.exports = ((err, req, res, next) => {
         winston.error(err.message, err);
     }
 
-    // If exception occurred, return 500 Internal server errors.
+    // If an exception occurred, return 500 Internal server errors.
     return res.status(500).send('Something went wrong.');
 });

@@ -4,7 +4,7 @@ const { minifyCandlestick, unminifyCandlestick } = require('./textUtils');
 // Calculate the relevant data and return new candlestick data to display.
 const createCandlestick = (data) => {
 
-    // Get the start index of the first point that bigger then the last timestamp.
+    // Get the start index of the first point that is bigger than the last timestamp.
     const startIndex = data.dataArray.findIndex(i => i.timestamp >= data.fromTimestamp);
 
     // Assign the point variables.

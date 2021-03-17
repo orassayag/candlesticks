@@ -45,7 +45,7 @@ class Candlestick extends Component {
             this.setState({ connectionStatus: false });
         });
 
-        // When receive fresh data, handle it.
+        // When receiving fresh data, handle it.
         this.socket.on('newData', (data) => this.updateData(data));
     }
 
@@ -73,7 +73,7 @@ class Candlestick extends Component {
         // Remove all old candlesticks.
         displayData.splice(1);
 
-        // Check if there is a need to remove an old candlestick to make place on the chart for new one.
+        // Check if there is a need to remove an old candlestick to make place on the chart for a new one.
         if (displayDataNewCandlesticks.length > this.maxCandlesticksDisplay) {
             displayDataNewCandlesticks.splice(0, this.maxCandlesticksDisplay);
         }
@@ -111,7 +111,7 @@ class Candlestick extends Component {
         // Remove all old candlesticks.
         displayData.splice(1);
 
-        // Check if there is a need to remove an old candlestick to make place on the chart for new one.
+        // Check if there is a need to remove an old candlestick to make place on the chart for a new one.
         if (displayDataNewCandlesticks.length > this.maxCandlesticksDisplay) {
             displayDataNewCandlesticks.splice(0, this.maxCandlesticksDisplay);
         }
@@ -140,7 +140,7 @@ class Candlestick extends Component {
 
         let tempDisplayData = [...displayData];
 
-        // Check if there is a need to remove an old candlestick to make place on the chart for new one.
+        // Check if there is a need to remove an old candlestick to make place on the chart for a new one.
         if (displayData.length > this.maxCandlesticksDisplay) {
             tempDisplayData.splice(1, 1);
         }
@@ -176,7 +176,7 @@ class Candlestick extends Component {
                         <div className={`control-panel${!displayLatest ? ' single' : ''}`}>
                             {displayLatest &&
                                 <div className="row margin">
-                                    <Button onClick={this.handleLatestCandlesticksClick} text="Get latest 20 candelsticks" />
+                                    <Button onClick={this.handleLatestCandlesticksClick} text="Get latest 20 candlesticks" />
                                 </div>
                             }
                             <div className="row">

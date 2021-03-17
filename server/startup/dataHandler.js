@@ -24,7 +24,7 @@ const initDataCreator = (app) => {
 
     // Save the data in the historical data.
     const saveTempData = (data) => {
-        // If last process timestamp is different from the last one, create the candlestick from the temp array.
+        // If the last process timestamp is different from the last one, create the candlestick from the temp array.
         if (lastProcessedTimestamp !== data.timestamp) {
 
             if (tempHistoricalArray.length > 0) {
@@ -40,7 +40,7 @@ const initDataCreator = (app) => {
             lastProcessedTimestamp = data.timestamp;
         }
 
-        // Save data to temp array.
+        // Save data to the temp array.
         tempHistoricalArray.push(data.dataItem);
     };
 
@@ -48,7 +48,7 @@ const initDataCreator = (app) => {
     const createData = () => {
         let open, close = null;
 
-        // Will hold all numbers of interval round.
+        // Will hold all numbers of interval rounds.
         let tempNumbersArray = null;
 
         for (let i = 0; i < config.defaultEventRate; i++) {
@@ -72,7 +72,7 @@ const initDataCreator = (app) => {
                     break;
             }
 
-            // Push the number into temp array.
+            // Push the number into a temp array.
             tempNumbersArray.push(number);
         }
 

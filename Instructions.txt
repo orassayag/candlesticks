@@ -10,6 +10,6 @@ Note: the solution is separated to client and server projects, to keep things cl
 8. Happy testing :)
 
 Application main features:
-1. Candlesticks will create automatically when is .
+1. Candlesticks will create automatically when they are .
 2. After 30 seconds, the user can change the interval (10,30) seconds.
-3. After 30 chunks of data received by the server, a button of latests candlesticks will be displayed, gettings last candlesticks from the server.
+3. After 30 chunks of data received by the server, a button of latests candlesticks will be displayed, getting the last candlesticks from the server.

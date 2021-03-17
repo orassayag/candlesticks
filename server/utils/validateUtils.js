@@ -33,7 +33,7 @@ const validateTimestamp = (fromTimestamp) => {
         return 'Missing or invalid fromTimestamp parameter';
     }
 
-    // Check if there is data to display within from the specific period.
+    // Check if there is data to display within the specific period.
     if (moment.unix(fromTimestamp) > moment.unix(config.intervalStartCreateTimestamp)) {
         return 'No data available within the selected period';
     }

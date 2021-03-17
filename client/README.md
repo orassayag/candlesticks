@@ -628,8 +628,6 @@ becomes this:
 
 ```css
 .App {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -827,7 +825,7 @@ To customize Bootstrap, create a file called `src/custom.scss` (or similar) and 
 
 ```scss
 // Override default variables before the import
-$body-bg: #000;
+$body-bg: #000000;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
@@ -2576,4 +2574,4 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 
 ## License
 
-This application has UNLICENSED License.
+This application has an UNLICENSED License.

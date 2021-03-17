@@ -20,7 +20,7 @@ export const validateCandlestick = (newCandlestick) => {
 
     const candlestick = unminifyCandlestick(newCandlestick);
 
-    // Check for all 5 parameters existence.
+    // Check for all 5 parameters' existence.
     if (Object.keys(candlestick).length !== 5) {
         result.isValid = false;
         return result;

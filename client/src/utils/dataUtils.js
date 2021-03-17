@@ -28,7 +28,7 @@ export const createCandlestickDisplay = (newCandlestick) => {
 // Create interval options to display on the dropdown menu.
 export const createIntervalOptions = (intervalStartCreateTimestamp) => {
 
-    // Validate the new intervalStartCreateTimestamp parmeter.
+    // Validate the new intervalStartCreateTimestamp parameter.
     if (!validateTimeFromServer(intervalStartCreateTimestamp)) {
         return null;
     }

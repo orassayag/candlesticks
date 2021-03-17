@@ -9,7 +9,7 @@ const initSocket = (io) => {
 
     io.on('connection', (socket) => {
 
-        // Once connected, send alert to the client.
+        // Once connected, send an alert to the client.
         socket.emit('connection', true);
 
         socket.on('start', () => {
@@ -24,7 +24,7 @@ const initSocket = (io) => {
 
     io.on('disconnect', (socket) => {
 
-        // Once disconnect, send alert to the client.
+        // Once disconnected, send an alert to the client.
         socket.emit('disconnect', true);
     });
 };
@@ -51,14 +51,14 @@ const createDataToSend = (app, io, intervalSendDataRate) => {
 
     lastProcessedTimestamp = lastProcessedTimestamp + intervalSendDataRate;
 
-    // When the candlestick is ready, send relevant data to event emitter.
+    // When the candlestick is ready, send relevant data to the event emitter.
     io.emit('newData', {
         intervalStartCreateTimestamp: app.get('intervalStartCreateTimestamp'),
         newCandlestick: newCandlestick
     });
 };
 
-// Remove old interval if exists and create new one.
+// Remove the old interval if it exists and create a new one.
 const createSendDataInterval = (app, io) => {
     let intervalId = app.get('intervalId');
     const intervalSendDataRate = app.get('intervalSendDataRate');
