@@ -1,0 +1,26 @@
+=========
+REMEMBER!
+=========
+Each time you change the logic / update NPM package version, do the following steps:
+1. Perform a backup before any change has been made, by running on terminal 'npm run backup' or manually to the backups directory.
+2. After the change, check that everything works OK.
+3. Keep the maintenance - Every change you do - Make sure to update in this document if needed.
+4. Do commit + push on Git project repository.
+5. Keep the backup update - Every change you do - Update in iOmega (each couple of days do backup there).
+=================================
+
+ToDo tasks:
+===========
+-Create a new 'create-react-app' project in the same name ('candlesticks').
+-Update to the latest NPM packages + recreate the package-lock.json file.
+-Rebuild the logic on the server and client.
+-Make sure all work well.
+-Add the project to the maintenance projects in 'WorkPlanNextWork' TXT file.
+-Format all documents.
+-Add (convert maybe the 'Instructions.txt' file) 'INSTRUCTIONS.MD' file.
+-Upload to GitHub.
+-Deploy on Heroku.
+-Add the link of the site to the daily check-list.
+
+Complete + canceled tasks:
+==========================
