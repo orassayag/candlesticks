@@ -11,6 +11,8 @@ Each time you change the logic / update NPM package version, do the following st
 
 ToDo tasks:
 ===========
+-Create new server project that will backup both client and server projects under the 'candlesticks' name to the 'backups' directory (with all the regular logic).
+-Create new server project and rebuild all the logic.
 -Create a new 'create-react-app' project in the same name ('candlesticks').
 -Update to the latest NPM packages + recreate the package-lock.json file.
 -Rebuild the logic on the server and client.
@@ -19,7 +21,7 @@ ToDo tasks:
 -Format all documents.
 -Add (convert maybe the 'Instructions.txt' file) 'INSTRUCTIONS.MD' file.
 -Upload to GitHub.
--Deploy on Heroku.
+-Deploy on Heroku: https://www.freecodecamp.org/news/deploy-a-react-node-app-to/
 -Add the link of the site to the daily check-list.
 
 Complete + canceled tasks:
