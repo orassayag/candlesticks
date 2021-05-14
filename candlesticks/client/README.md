@@ -1,3 +1,5 @@
+# Candlesticks
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -2570,7 +2572,7 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 * Or Assayag <orassayag@gmail.com>
 * GitHub: https://github.com/orassayag
 * StackOverFlow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://il.linkedin.com/in/orassayag
+* LinkedIn: https://linkedin.com/in/orassayag
 
 ## License
 
