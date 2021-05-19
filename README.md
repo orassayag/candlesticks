@@ -1,17 +1,17 @@
 # Candlesticks
 
-Built in December 2018. React.js + Node.js (Websocket + Express) application to create candlesticks (Price chart) by intervals.
+Built in December 2018. React.js + Node.js (Websocket + Express.js) application to create candlesticks (Price chart) by intervals.
 
 ## Getting Started
 
 Clone the project to your computer.
 Steps to view the solution:
-1. Open the server project on the IDE (I used VS CODE).
-2. On the terminal: npm i (and wait to download all node_modules folder).
-3. Once finished, on the terminal: node index.js
+1. Open the server project on the IDE (I used VSCode).
+2. In the terminal: npm i (and wait to download all node_modules directory).
+3. Once finished, in the terminal: node index.js
 4. Open the client project on another IDE.
-5. On the terminal: npm i (again, wait to download all node_modules folder).
-6. Once finished, on the terminal: npm start
+5. In the terminal: npm i (again, wait to download all node_modules directory).
+6. Once finished, in the terminal: npm start
 7. Wait 10 seconds once you see the loading animation to collect enough data for the first candlestick.
 8. Happy testing :)
 
