@@ -7,13 +7,13 @@ Built in December 2018. React.js + Node.js (Websocket + Express.js) application 
 Clone the project to your computer.
 Steps to view the solution:
 1. Open the server project on the IDE (I used VSCode).
-2. In the terminal: npm i (and wait to download all node_modules directory).
-3. Once finished, in the terminal: node index.js
+2. In the terminal run: 'npm i'. (and wait to download all node_modules directory).
+3. Once finished, in the terminal run: 'node index.js'.
 4. Open the client project on another IDE.
 5. In the terminal: npm i (again, wait to download all node_modules directory).
-6. Once finished, in the terminal: npm start
+6. Once finished, in the terminal run: 'npm start'.
 7. Wait 10 seconds once you see the loading animation to collect enough data for the first candlestick.
-8. Happy testing :)
+8. Happy testing :).
 
 ### Prerequisites
 
@@ -21,8 +21,9 @@ You'll need to install VS Code, Node, and clone the project, run npm i + node in
 
 ## Built With
 
-* [Node.JS](https://nodejs.org/en/) - The web framework used - server side.
-* [React.JS](https://reactjs.org/) - The web framework used - client side.
+* [Node.js](https://nodejs.org/en) - The web framework used - server side.
+* [React.js](https://reactjs.org) - The web framework used - client side.
+* [Git](https://git-scm.com) - Source management.
 
 ## Contributing
 
@@ -30,7 +31,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [SemVer](http://semver.org) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Author
 
@@ -42,4 +43,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## License
 
-This application has an UNLICENSED License.
+This application has an UNLICENSED license.
