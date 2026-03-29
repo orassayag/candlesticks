@@ -1,7 +1,25 @@
 {
-  "name": "client",
+  "name": "candlesticks-client",
   "version": "0.1.0",
   "private": false,
+  "description": "Real-time candlestick chart visualization using React.js, WebSocket, and Google Charts for live financial data display",
+  "author": "Or Assayag <orassayag@gmail.com> (https://github.com/orassayag)",
+  "license": "MIT",
+  "keywords": [
+    "candlestick",
+    "chart",
+    "real-time",
+    "websocket",
+    "socket.io",
+    "react",
+    "financial",
+    "trading",
+    "data-visualization",
+    "google-charts",
+    "price-chart",
+    "ohlc",
+    "market-data"
+  ],
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",

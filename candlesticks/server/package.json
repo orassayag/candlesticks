@@ -1,16 +1,30 @@
 {
-    "name": "server",
+    "name": "candlesticks-server",
     "version": "1.0.0",
     "private": false,
-    "description": "",
+    "description": "Real-time candlestick chart server using Node.js, Express, and WebSocket for live financial data streaming",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
         "lint": "eslint ./"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "keywords": [
+        "candlestick",
+        "chart",
+        "real-time",
+        "websocket",
+        "socket.io",
+        "financial",
+        "trading",
+        "data-visualization",
+        "node.js",
+        "express",
+        "price-chart",
+        "ohlc",
+        "market-data"
+    ],
+    "author": "Or Assayag <orassayag@gmail.com> (https://github.com/orassayag)",
+    "license": "MIT",
     "dependencies": {
         "body-parser": "^1.18.3",
         "cors": "^2.8.5",
