@@ -6,14 +6,26 @@ Built in December 2018. This full-stack JavaScript application simulates market 
 
 ## Features
 
-- 📊 Real-time candlestick chart generation and visualization
-- 🔄 WebSocket-based live data streaming
-- ⏱️ Configurable intervals (10s, 30s, 60s)
-- 📈 Dynamic chart updates without page refresh
-- 💾 Server-side caching of historical data
-- 📉 Historical candlestick data retrieval
-- 🎯 Automatic data aggregation (open, close, high, low)
-- 🚀 Scalable architecture supporting multiple concurrent clients
+### Core Capabilities
+
+- **Real-time Data Streaming**: Live price updates via WebSockets.
+- **Dynamic Aggregation**: Automatic OHLC calculation (Open, High, Low, Close).
+- **Historical Data**: retrieval and server-side caching of past candlesticks.
+- **Multi-Interval Support**: Toggle between 10s, 30s, and 60s intervals.
+
+### Technical Excellence
+
+- **Full-Stack JavaScript**: Unified language for both frontend and backend.
+- **WebSocket Integration**: Low-latency communication with Socket.io.
+- **Responsive UI**: Modern React.js frontend for seamless user experience.
+- **Scalable Backend**: Node.js and Express architecture.
+
+### Developer Experience
+
+- **Hot-Reloading**: Instant feedback during development with React.
+- **Integrated Linting**: Pre-configured ESLint for code quality.
+- **Simple Setup**: Get up and running in minutes with clear instructions.
+- **Modular Codebase**: Well-organized directory structure for easy navigation.
 
 ## Architecture Overview
 
@@ -25,7 +37,7 @@ graph TB
         B --> D[Socket.io Client]
         D --> E[API Service]
     end
-    
+
     subgraph Server["Server (Node.js)"]
         F[Express Server] --> G[WebSocket Handler]
         F --> H[Data Generator]
@@ -33,14 +45,28 @@ graph TB
         I --> J[Historical Cache]
         G --> K[Event Emitter]
     end
-    
+
     D <-.WebSocket.-> G
     E <-.HTTP.-> F
     K -.Real-time Data.-> D
-    
+
     style Client fill:#e1f5ff
     style Server fill:#fff4e1
 ```
+
+### Architecture Principles
+
+- **Separation of Concerns**: Clear distinction between data generation (server) and data visualization (client).
+- **Event-Driven**: Real-time updates driven by WebSocket events.
+- **Stateless Visualization**: The client remains thin, relying on the server for data processing and aggregation.
+- **Scalability**: Backend designed to handle multiple concurrent WebSocket connections.
+
+### Design Patterns
+
+- **Observer Pattern**: Used for WebSocket communication where clients subscribe to data updates.
+- **Singleton Pattern**: Ensures single instances of data generation and caching services on the server.
+- **Container/Component Pattern**: React architecture separating logic-heavy containers from presentational components.
+- **Middleware Pattern**: Express middleware for logging and error handling.
 
 ## Data Flow
 
@@ -51,15 +77,15 @@ sequenceDiagram
     participant S as Server
     participant DG as Data Generator
     participant CC as Candlestick Creator
-    
+
     Note over DG: Generate random prices<br/>every 200ms
     DG->>CC: Send price data
     CC->>CC: Aggregate into candlesticks
     CC->>S: Store in cache
-    
+
     C->>WS: Connect & start
     WS->>S: Initialize connection
-    
+
     loop Every interval (10s/30s/60s)
         S->>CC: Request candlestick
         CC->>CC: Calculate OHLC values
@@ -67,7 +93,7 @@ sequenceDiagram
         WS->>C: Emit newData event
         C->>C: Update chart
     end
-    
+
     C->>S: Request historical data
     S->>C: Return cached candlesticks
 ```
@@ -83,18 +109,21 @@ sequenceDiagram
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/orassayag/candlesticks.git
 cd candlesticks
 ```
 
 2. Install server dependencies:
+
 ```bash
 cd candlesticks/server
 npm install
 ```
 
 3. Install client dependencies:
+
 ```bash
 cd ../client
 npm install
@@ -103,22 +132,33 @@ npm install
 ### Running the Application
 
 1. **Start the server** (in one terminal):
+
 ```bash
 cd candlesticks/server
 npm start
 ```
+
 You should see: `Listening to express server port 3000...`
 
 2. **Start the client** (in another terminal):
+
 ```bash
 cd candlesticks/client
 npm start
 ```
+
 Browser will automatically open at `http://localhost:3001`
 
 3. **Wait 10 seconds** for initial data collection before the first candlestick appears
 
 4. **Happy testing!** 🎉
+
+## Usage
+
+1. **Launch the Application**: Start both the server and client as described in the Installation section.
+2. **View Live Data**: Once the client loads, wait 10 seconds for the first candlestick to be generated and displayed.
+3. **Change Intervals**: Use the interval selector to switch between 10s, 30s, and 60s views.
+4. **Analyze History**: The chart will automatically populate with historical data when switching intervals or on initial load.
 
 ## Configuration
 
@@ -144,7 +184,7 @@ Edit `candlesticks/client/src/settings/settings.js`:
 
 ```javascript
 {
-  api_base_url: 'http://localhost:3000/'
+  api_base_url: 'http://localhost:3000/';
 }
 ```
 
@@ -198,6 +238,31 @@ candlesticks/
 └── README.md
 ```
 
+## Directory Structure
+
+```text
+candlesticks/
+├── client/                 # React frontend application
+│   ├── config/             # Build and environment configuration
+│   ├── public/             # Static assets and index.html
+│   ├── scripts/            # Build and test scripts
+│   └── src/                # Frontend source code
+│       ├── api/            # API client and routes
+│       ├── components/     # Reusable UI components
+│       ├── containers/     # Page-level components
+│       ├── hoc/            # Higher-order components
+│       ├── settings/       # Frontend configuration
+│       └── utils/          # Frontend utility functions
+├── server/                 # Node.js backend application
+│   ├── config/             # Backend configuration
+│   ├── data/               # Historical data storage
+│   ├── middleware/         # Express middleware
+│   ├── services/           # Backend services
+│   ├── startup/            # Initialization logic
+│   └── utils/              # Backend utility functions
+└── misc/                   # Miscellaneous documentation and tasks
+```
+
 ## How It Works
 
 ### Data Generation
@@ -235,9 +300,11 @@ candlesticks/
 ### WebSocket Events
 
 #### Client → Server
+
 - `start`: Initialize data streaming
 
 #### Server → Client
+
 - `connection`: Connection established
 - `disconnect`: Connection closed
 - `newData`: New candlestick data
@@ -257,37 +324,45 @@ candlesticks/
 ### REST API
 
 #### GET `/api/candlesticks`
+
 Retrieves historical candlestick data.
 
 **Query Parameters:**
+
 - `interval`: Candlestick interval in seconds (10, 30, or 60)
 
 **Response:**
+
 ```javascript
 {
-  candlesticks: [{
-    timestamp: number,
-    open: number,
-    close: number,
-    high: number,
-    low: number
-  }]
+  candlesticks: [
+    {
+      timestamp: number,
+      open: number,
+      close: number,
+      high: number,
+      low: number,
+    },
+  ];
 }
 ```
 
 #### POST `/api/interval`
+
 Updates the candlestick interval.
 
 **Body:**
+
 ```javascript
 {
-  interval: 10 | 30 | 60
+  interval: 10 | 30 | 60;
 }
 ```
 
 ## Technologies Used
 
 ### Frontend
+
 - [React.js](https://reactjs.org) - UI framework
 - [Socket.io Client](https://socket.io) - WebSocket client
 - [Google Charts](https://developers.google.com/chart) - Chart visualization
@@ -295,6 +370,7 @@ Updates the candlestick interval.
 - [Webpack](https://webpack.js.org) - Module bundler
 
 ### Backend
+
 - [Node.js](https://nodejs.org) - JavaScript runtime
 - [Express.js](https://expressjs.com) - Web framework
 - [Socket.io](https://socket.io) - WebSocket server
@@ -303,6 +379,7 @@ Updates the candlestick interval.
 - [node-cache](https://github.com/node-cache/node-cache) - In-memory caching
 
 ### Development Tools
+
 - [ESLint](https://eslint.org) - Code linting
 - [Babel](https://babeljs.io) - JavaScript compiler
 
@@ -314,14 +391,35 @@ Everyone is welcome to contribute. Contributing doesn't just mean submitting pul
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
+## Best Practices
+
+- **Code Quality**: Ensure all code passes linting before submission.
+- **Component Reusability**: Build modular React components for better maintainability.
+- **Error Handling**: Implement robust error handling on both client and server.
+- **Documentation**: Keep comments and documentation up to date with code changes.
+
+## Support
+
+For questions, issues, or contributions:
+
+- **GitHub Issues**: [https://github.com/orassayag/candlesticks/issues](https://github.com/orassayag/candlesticks/issues)
+- **Email**: orassayag@gmail.com
+
 ## Author
 
-* **Or Assayag** - *Initial work* - [orassayag](https://github.com/orassayag)
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- **Or Assayag** - _Initial work_ - [orassayag](https://github.com/orassayag)
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
 
 ## License
 
-This application is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This application has an MIT license - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built for educational and research purposes
+- Respects robots.txt and implements rate limiting
+- Uses user-agent rotation to avoid detection
+- Implements polite crawling practices

@@ -1,39 +1,88 @@
 {
-    "name": "candlesticks-server",
-    "version": "1.0.0",
-    "private": false,
-    "description": "Real-time candlestick chart server using Node.js, Express, and WebSocket for live financial data streaming",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "lint": "eslint ./"
-    },
-    "keywords": [
-        "candlestick",
-        "chart",
-        "real-time",
-        "websocket",
-        "socket.io",
-        "financial",
-        "trading",
-        "data-visualization",
-        "node.js",
-        "express",
-        "price-chart",
-        "ohlc",
-        "market-data"
-    ],
-    "author": "Or Assayag <orassayag@gmail.com> (https://github.com/orassayag)",
-    "license": "MIT",
-    "dependencies": {
-        "body-parser": "^1.18.3",
-        "cors": "^2.8.5",
-        "eslint": "^5.1.0",
-        "express": "^4.16.3",
-        "express-async-errors": "^3.0.0",
-        "moment": "^2.22.2",
-        "node-cache": "^4.2.0",
-        "socket.io": "^2.1.1",
-        "winston": "^2.4.0"
+  "name": "candlesticks-server",
+  "version": "1.0.0",
+  "private": false,
+  "description": "A real-time financial charting app that generates live candlestick price charts with configurable intervals. Built with React.js, Node.js, and WebSockets for live streaming, it simulates market data, transforms it into candlestick format, and visualizes it in real time using Google Charts UI",
+  "keywords": [
+    "real-time",
+    "financial",
+    "charting",
+    "candlestick",
+    "stocks",
+    "market",
+    "data",
+    "visualization",
+    "websockets",
+    "streaming",
+    "react",
+    "nodejs",
+    "javascript",
+    "typescript",
+    "google-charts",
+    "trading",
+    "simulation",
+    "analytics",
+    "frontend",
+    "backend"
+  ],
+  "homepage": "https://github.com/orassayag/candlesticks#readme",
+  "bugs": {
+    "url": "https://github.com/orassayag/candlesticks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/candlesticks.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/orassayag"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Or Assayag",
+    "email": "orassayag@gmail.com",
+    "url": "https://github.com/orassayag"
+  },
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
     }
+  ],
+  "type": "commonjs",
+  "main": "index.js",
+  "files": [
+    ".vscode",
+    "config",
+    "data",
+    "middleware",
+    "services",
+    "startup",
+    "utils",
+    ".eslintrc.json",
+    ".gitignore",
+    ".prettierrc",
+    "index.js",
+    "logfile.log",
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint ./",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "eslint": "^5.1.0",
+    "express": "^4.16.3",
+    "express-async-errors": "^3.0.0",
+    "moment": "^2.22.2",
+    "node-cache": "^4.2.0",
+    "socket.io": "^2.1.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {}
 }

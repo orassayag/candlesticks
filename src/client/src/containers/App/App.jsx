@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <Layout>
         <Switch>
-          <Route path="/" exact component={containers.Candlestick} />
+          <Route path='/' exact component={containers.Candlestick} />
           <Route path='*' exact component={containers.Candlestick} />
         </Switch>
       </Layout>

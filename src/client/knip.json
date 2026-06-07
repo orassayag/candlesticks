@@ -1,0 +1,19 @@
+{
+  "entry": [
+    "config/jest/*.js",
+    "src/api/**/*.{js,jsx,tsx}",
+    "src/components/**/*.{js,jsx,tsx}",
+    "src/containers/**/*.{js,jsx,tsx}",
+    "src/hoc/**/*.{js,jsx,tsx}",
+    "src/settings/**/*.{js,jsx,tsx}",
+    "src/utils/**/*.{js,jsx,tsx}",
+    "src/index.{js,jsx,ts,tsx}"
+  ],
+  "project": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "config/**/*.{js,ts}",
+    "scripts/**/*.js"
+  ],
+  "ignoreDependencies": [""],
+  "ignoreExportsUsedInFile": true
+}

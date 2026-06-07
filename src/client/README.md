@@ -14,39 +14,39 @@ graph TB
         UI[User Interface]
         GC[Google Charts]
     end
-    
+
     subgraph React["React Application"]
         C[Components] --> CC[Chart Container]
         C --> IC[Interval Control]
         C --> HC[History Control]
         CC --> GC
     end
-    
+
     subgraph Communication["Communication Layer"]
         SC[Socket.io Client] --> EH[Event Handlers]
         API[API Service] --> Axios[Axios HTTP]
     end
-    
+
     subgraph Utils["Utilities"]
         DU[Data Utils]
         VU[Validation Utils]
         TU[Text Utils]
     end
-    
+
     UI --> C
     EH --> CC
     CC --> DU
     IC --> API
     HC --> API
-    
+
     subgraph Server["Server"]
         WS[WebSocket]
         REST[REST API]
     end
-    
+
     SC <-.WebSocket.-> WS
     Axios <-.HTTP.-> REST
-    
+
     style Browser fill:#e1f5ff
     style React fill:#fff4e1
     style Communication fill:#e8f5e8
@@ -64,27 +64,27 @@ sequenceDiagram
     participant API as API Service
     participant Chart as Google Charts
     participant Server
-    
+
     User->>UI: Open application
     UI->>Socket: Connect to server
     Socket->>Server: WebSocket connect
     Server->>Socket: Connection confirmed
-    
+
     UI->>Socket: Emit 'start' event
-    
+
     loop Real-time Updates
         Server->>Socket: newData event
         Socket->>UI: Receive candlestick
         UI->>Chart: Update chart data
         Chart->>User: Display updated chart
     end
-    
+
     User->>UI: Change interval
     UI->>API: POST /api/interval
     API->>Server: Update interval
     Server->>Socket: New candlesticks
     Socket->>Chart: Update with new interval
-    
+
     User->>UI: View history
     UI->>API: GET /api/candlesticks
     API->>Server: Request historical data
@@ -115,6 +115,7 @@ npm install
 ### Development Mode
 
 Start the development server with hot-reload:
+
 ```bash
 npm start
 ```
@@ -124,6 +125,7 @@ The application will open at `http://localhost:3001`
 ### Production Build
 
 Create an optimized production build:
+
 ```bash
 npm run build
 ```
@@ -136,7 +138,7 @@ Edit `src/settings/settings.js`:
 
 ```javascript
 const settings = {
-  api_base_url: 'http://localhost:3000/'  // Server URL
+  api_base_url: 'http://localhost:3000/', // Server URL
 };
 
 export default settings;
@@ -212,12 +214,12 @@ Renders the candlestick chart using Google Charts:
 import { Chart } from 'react-google-charts';
 
 <Chart
-  chartType="CandlestickChart"
+  chartType='CandlestickChart'
   data={chartData}
   options={chartOptions}
-  width="100%"
-  height="400px"
-/>
+  width='100%'
+  height='400px'
+/>;
 ```
 
 ### WebSocket Connection
@@ -251,7 +253,7 @@ import api from '../api/api';
 
 // Get historical data
 const response = await api.get('/candlesticks', {
-  params: { interval: 30 }
+  params: { interval: 30 },
 });
 
 // Update interval
@@ -270,7 +272,7 @@ Google Charts expects data in this format:
   ['10:00', 490000, 500000, 510000, 520000],
   ['10:10', 495000, 510000, 505000, 525000],
   // ...
-]
+];
 ```
 
 ### Chart Options
@@ -280,14 +282,14 @@ const options = {
   legend: 'none',
   candlestick: {
     fallingColor: { strokeWidth: 0, fill: '#a52714' },
-    risingColor: { strokeWidth: 0, fill: '#0f9d58' }
+    risingColor: { strokeWidth: 0, fill: '#0f9d58' },
   },
   hAxis: {
-    title: 'Time'
+    title: 'Time',
   },
   vAxis: {
-    title: 'Price'
-  }
+    title: 'Price',
+  },
 };
 ```
 
@@ -301,7 +303,7 @@ class CandlestickChart extends Component {
     candlesticks: [],
     interval: 10,
     loading: true,
-    connected: false
+    connected: false,
   };
 
   componentDidMount() {
@@ -335,8 +337,9 @@ socket.on('error', (error) => {
 ## Browser Support
 
 Configured to support:
+
 - Modern browsers (Chrome, Firefox, Safari, Edge)
-- >0.2% market share
+- > 0.2% market share
 - Excludes IE 11 and below
 - Excludes Opera Mini
 
@@ -345,6 +348,7 @@ Configured to support:
 ### Hot Module Replacement
 
 The development server supports hot-reloading:
+
 - Changes to components automatically refresh
 - State is preserved when possible
 - Console shows build errors
@@ -352,6 +356,7 @@ The development server supports hot-reloading:
 ### Debugging
 
 Use React Developer Tools:
+
 ```bash
 # Install Chrome extension
 # React Developer Tools
@@ -365,8 +370,8 @@ MIT License - see [LICENSE](../LICENSE) file for details.
 
 ## Author
 
-* **Or Assayag** - [orassayag](https://github.com/orassayag)
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- **Or Assayag** - [orassayag](https://github.com/orassayag)
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag

@@ -1,27 +1,114 @@
-# Instructions
+# Setup and Usage Instructions
 
-## Setup Instructions
+**Version**: 1.0.0
+**Last Updated**: June 2026
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Initial Setup](#initial-setup)
+3. [Available Commands](#available-commands)
+4. [Configuration](#configuration)
+5. [Application Features](#application-features)
+6. [WebSocket Events](#websocket-events)
+7. [API Endpoints](#api-endpoints)
+8. [Troubleshooting](#troubleshooting)
+9. [Best Practices](#best-practices)
+10. [Extending the Application](#extending-the-application)
+11. [Documentation](#documentation)
+12. [External Resources](#external-resources)
+
+## Initial Setup
 
 ### Prerequisites
 
-- Node.js (v10 or higher)
-- npm or yarn
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Two terminal windows (one for server, one for client)
+#### System Requirements
 
-### Server Setup
+- **Node.js**: Version 10 or higher
+- **Package Manager**: npm or yarn
+- **Browser**: Modern web browser (Chrome, Firefox, Safari, Edge)
+- **Memory**: 2GB RAM minimum
+- **Operating System**: Windows, macOS, or Linux
+
+### Install Dependencies
+
+**Server:**
 
 1. Navigate to the server directory:
    ```bash
    cd candlesticks/server
    ```
-
 2. Install dependencies:
    ```bash
    npm install
    ```
 
+**Client:**
+
+1. Navigate to the client directory:
+   ```bash
+   cd candlesticks/client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Available Commands
+
+### Development Commands
+
+**Server:**
+
+```bash
+# Start the server
+npm start
+
+# Run linting
+npm run lint
+```
+
+**Client:**
+
+```bash
+# Start development server with hot-reload
+npm start
+
+# Run tests
+npm test
+
+# Run linting
+npm run lint
+
+# Build for production
+npm run build
+```
+
+### Running Scripts
+
+The application relies on the interaction between the server and the client. Ensure the server is running before starting the client.
+
+1. **Start Server**: `cd server && npm start`
+2. **Start Client**: `cd client && npm start`
+
+## Setup Instructions
+
+### Server Setup
+
+1. Navigate to the server directory:
+
+   ```bash
+   cd candlesticks/server
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
 3. Start the server:
+
    ```bash
    npm start
    # or
@@ -37,16 +124,19 @@
 1. Open a new terminal window
 
 2. Navigate to the client directory:
+
    ```bash
    cd candlesticks/client
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Start the client:
+
    ```bash
    npm start
    ```
@@ -80,6 +170,7 @@ Edit `candlesticks/client/src/settings/settings.js`:
 ### Real-Time Candlestick Generation
 
 The application continuously generates candlestick data with:
+
 - **Open**: First price in the interval
 - **Close**: Last price in the interval
 - **High**: Highest price in the interval
@@ -88,6 +179,7 @@ The application continuously generates candlestick data with:
 ### Interval Selection
 
 After 30 seconds of data collection:
+
 - Change candlestick interval dynamically
 - Choose between 10s, 30s, or 60s intervals
 - Chart automatically recalculates and displays
@@ -95,6 +187,7 @@ After 30 seconds of data collection:
 ### Historical Data
 
 After collecting 30+ candlesticks:
+
 - Access historical candlestick data
 - View last 20 candlesticks
 - Data is cached server-side for performance
@@ -104,12 +197,14 @@ After collecting 30+ candlesticks:
 ### Running in Development Mode
 
 **Server:**
+
 ```bash
 cd candlesticks/server
 npm start
 ```
 
 **Client:**
+
 ```bash
 cd candlesticks/client
 npm start  # Runs with hot-reload
@@ -118,12 +213,14 @@ npm start  # Runs with hot-reload
 ### Linting
 
 **Server:**
+
 ```bash
 cd candlesticks/server
 npm run lint
 ```
 
 **Client:**
+
 ```bash
 cd candlesticks/client
 npm run lint
@@ -132,6 +229,7 @@ npm run lint
 ### Building for Production
 
 **Client:**
+
 ```bash
 cd candlesticks/client
 npm run build
@@ -219,9 +317,11 @@ client/
 Retrieves historical candlestick data.
 
 **Query Parameters:**
+
 - `interval`: Candlestick interval in seconds (10, 30, or 60)
 
 **Response:**
+
 ```javascript
 {
   candlesticks: [
@@ -230,9 +330,9 @@ Retrieves historical candlestick data.
       open: number,
       close: number,
       high: number,
-      low: number
-    }
-  ]
+      low: number,
+    },
+  ];
 }
 ```
 
@@ -241,9 +341,10 @@ Retrieves historical candlestick data.
 Updates the candlestick interval.
 
 **Body:**
+
 ```javascript
 {
-  interval: number  // 10, 30, or 60 seconds
+  interval: number; // 10, 30, or 60 seconds
 }
 ```
 
@@ -254,15 +355,17 @@ Updates the candlestick interval.
 If port 3000 or 3001 is already in use:
 
 **Server:**
+
 ```javascript
 // Edit candlesticks/server/config/config.js
-port: 3001  // Change to available port
+port: 3001; // Change to available port
 ```
 
 **Client:**
+
 ```javascript
 // Edit candlesticks/client/src/settings/settings.js
-api_base_url: 'http://localhost:3001/'  // Match server port
+api_base_url: 'http://localhost:3001/'; // Match server port
 ```
 
 ### WebSocket Connection Failed
@@ -286,6 +389,13 @@ api_base_url: 'http://localhost:3001/'  // Match server port
 3. Re-run `npm install` in both server and client directories
 4. Ensure Node.js version compatibility
 
+## Best Practices
+
+- **Component Organization**: Keep React components small and focused on a single responsibility.
+- **State Management**: Use React state for local component data and server-side logic for data processing.
+- **WebSocket Efficiency**: Minimize the payload sent over WebSockets to reduce latency.
+- **Code Consistency**: Follow the established ESLint rules to maintain a clean codebase.
+
 ## Notes
 
 - The application generates random market data for demonstration purposes
@@ -295,10 +405,36 @@ api_base_url: 'http://localhost:3001/'  // Match server port
 - Minimum 10 seconds of data required for first candlestick
 - Chart updates automatically when interval changes
 
+## Extending the Application
+
+### Adding New Intervals
+
+1. Update `intervalRates` in `server/config/config.js`.
+2. Update the interval selection UI in `client/src/containers/Candlestick/Candlestick.jsx`.
+
+### Customizing the Chart
+
+1. Modify the Google Charts configuration in `client/src/containers/Candlestick/Candlestick.jsx`.
+2. Update CSS in `client/src/containers/Candlestick/Candlestick.less`.
+
+## Documentation
+
+- **README.md**: Overview of the project, architecture, and features.
+- **CHANGELOG.md**: History of changes and versions.
+- **CONTRIBUTING.md**: Guidelines for contributing to the project.
+- **LICENSE**: Legal information regarding project usage.
+
+## External Resources
+
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Socket.io Documentation](https://socket.io/docs/v4/)
+- [Google Charts Gallery](https://developers.google.com/chart/interactive/docs/gallery/candlestickchart)
+
 ## Author
 
-* **Or Assayag** - *Initial work* - [orassayag](https://github.com/orassayag)
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- **Or Assayag** - _Initial work_ - [orassayag](https://github.com/orassayag)
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag

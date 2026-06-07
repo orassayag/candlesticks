@@ -9,6 +9,7 @@ Everyone is welcome to contribute to this project. Contributing doesn't just mea
 ### Reporting Issues
 
 If you find a bug or have a feature request:
+
 1. Check if the issue already exists in the [GitHub Issues](https://github.com/orassayag/candlesticks/issues)
 2. If not, create a new issue with:
    - Clear title and description
@@ -32,12 +33,14 @@ If you find a bug or have a feature request:
 ### Code Style Guidelines
 
 This project uses:
+
 - **JavaScript (ES6+)** for both client and server
 - **React.js** for the frontend
 - **Node.js/Express** for the backend
 - **ESLint** for code quality
 
 Before submitting:
+
 ```bash
 # Server
 cd candlesticks/server
@@ -68,6 +71,7 @@ npm start  # Test client
 When adding new features:
 
 **Server-side:**
+
 1. Add configurations in `config/config.js`
 2. Create utilities in `utils/` folder
 3. Add services in `services/` folder
@@ -75,6 +79,7 @@ When adding new features:
 5. Test with multiple clients
 
 **Client-side:**
+
 1. Create reusable components in `src/components/`
 2. Add API routes in `src/api/routes/`
 3. Update settings in `src/settings/settings.js`
@@ -106,9 +111,9 @@ When adding new features:
 
 Please feel free to contact me with any question, comment, pull-request, issue, or any other thing you have in mind.
 
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
 
 Thank you for contributing! 🙏

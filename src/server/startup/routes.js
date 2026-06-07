@@ -1,48 +1,50 @@
-const { validateNewInterval, validateTimestamp } = require('../utils/validateUtils');
+const {
+  validateNewInterval,
+  validateTimestamp,
+} = require('../utils/validateUtils');
 
 // Define all routes of the express app.
 module.exports = (app, io, functions) => {
+  // Update the interval candlesticks and return data to send the client.
+  app.post('/api/data/updateInterval', async (req, res) => {
+    // Validate the new interval parameter from the client.
+    const validationResult = validateNewInterval(req.query.interval);
+    if (validationResult) {
+      return res.status(400).send(validationResult);
+    }
 
-    // Update the interval candlesticks and return data to send the client.
-    app.post('/api/data/updateInterval', async (req, res) => {
+    // Update the interval parameter.
+    app.set('intervalSendDataRate', Math.floor(Number(req.query.interval)));
 
-        // Validate the new interval parameter from the client.
-        const validationResult = validateNewInterval(req.query.interval);
-        if (validationResult) {
-            return res.status(400).send(validationResult);
-        }
+    // Restart the interval
+    functions.createSendDataInterval(app, io);
 
-        // Update the interval parameter.
-        app.set('intervalSendDataRate', Math.floor(Number(req.query.interval)));
+    // Recalculate candlestick to send the client.
+    const newCandlesticks = functions.reCalculateCandlesticks(app);
+    if (!newCandlesticks) {
+      return res.status(400).send('No data available');
+    }
 
-        // Restart the interval
-        functions.createSendDataInterval(app, io);
+    return res.status(200).send(newCandlesticks);
+  });
 
-        // Recalculate candlestick to send the client.
-        const newCandlesticks = functions.reCalculateCandlesticks(app);
-        if (!newCandlesticks) {
-            return res.status(400).send('No data available');
-        }
+  // Get
+  app.get('/api/data/getHistoryData', async (req, res) => {
+    // Validate the from timestamp parameter from the client.
+    const validationResult = validateTimestamp(req.query.timestamp);
+    if (validationResult) {
+      return res.status(400).send(validationResult);
+    }
 
-        return res.status(200).send(newCandlesticks);
+    // Recalculate candlestick to send the client.
+    const newCandlesticks = functions.reCalculateCandlesticks(
+      app,
+      Number(req.query.timestamp)
+    );
+    if (!newCandlesticks) {
+      return res.status(400).send('No data available');
+    }
 
-    });
-
-    // Get
-    app.get('/api/data/getHistoryData', async (req, res) => {
-
-        // Validate the from timestamp parameter from the client.
-        const validationResult = validateTimestamp(req.query.timestamp);
-        if (validationResult) {
-            return res.status(400).send(validationResult);
-        }
-
-        // Recalculate candlestick to send the client.
-        const newCandlesticks = functions.reCalculateCandlesticks(app, Number(req.query.timestamp));
-        if (!newCandlesticks) {
-            return res.status(400).send('No data available');
-        }
-
-        return res.status(200).send(newCandlesticks);
-    });
+    return res.status(200).send(newCandlesticks);
+  });
 };

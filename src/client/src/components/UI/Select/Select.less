@@ -1,37 +1,41 @@
 .styled-select {
-    margin-top: 20px;
+  margin-top: 20px;
+  height: 29px;
+  overflow: hidden;
+  width: 100%;
+  -webkit-transition:
+    background-color 0.3s,
+    border-color 0.3s;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+
+  select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
     height: 29px;
-    overflow: hidden;
+    padding: 5px;
     width: 100%;
-    -webkit-transition: background-color .3s, border-color .3s;
-    transition: background-color .3s, border-color .3s;
+    cursor: pointer;
+
+    option {
+      color: #000000;
+      margin-right: 2em;
+    }
+  }
+
+  &.black {
+    background-color: #000000;
 
     select {
-        background: transparent;
-        border: none;
-        font-size: 14px;
-        height: 29px;
-        padding: 5px;
-        width: 100%;
-        cursor: pointer;
-
-        option {
-            color: #000000;
-            margin-right: 2em;
-        }
+      color: #ffffff;
     }
 
-    &.black {
-        background-color: #000000;
-
-        select {
-            color: #ffffff;
-        }
-
-        &.rounded {
-            -webkit-border-radius: 20px;
-            -moz-border-radius: 20px;
-            border-radius: 20px;
-        }
+    &.rounded {
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
     }
+  }
 }

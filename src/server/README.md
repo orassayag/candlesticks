@@ -13,30 +13,30 @@ graph TB
     subgraph External
         C[Client Connections]
     end
-    
+
     subgraph Express["Express Server"]
         R[Routes] --> API[API Endpoints]
         R --> WS[WebSocket Handler]
     end
-    
+
     subgraph Data["Data Processing"]
         DG[Data Generator] --> |200ms interval| DP[Data Processor]
         DP --> CC[Candlestick Creator]
         CC --> Cache[Historical Cache]
     end
-    
+
     subgraph Services
         CS[Cache Service]
         LS[Logging Service]
     end
-    
+
     C <-.WebSocket.-> WS
     C <-.HTTP.-> API
     WS --> EE[Event Emitter]
     EE --> C
     CC --> EE
     Cache --> CS
-    
+
     style External fill:#e1f5ff
     style Express fill:#fff4e1
     style Data fill:#e8f5e8
@@ -53,7 +53,7 @@ sequenceDiagram
     participant Cache as Cache Service
     participant WS as WebSocket
     participant Client
-    
+
     Note over DG: Every 200ms
     loop Generate Data
         DG->>DG: Generate 100 random prices
@@ -62,10 +62,10 @@ sequenceDiagram
         CC->>CC: Calculate OHLC
         CC->>Cache: Store candlestick
     end
-    
+
     Client->>WS: Connect & start
     WS->>Client: Connection confirmed
-    
+
     loop Every interval (10s/30s/60s)
         WS->>CC: Request candlestick
         CC->>Cache: Get historical data
@@ -74,7 +74,7 @@ sequenceDiagram
         CC->>WS: Send candlestick
         WS->>Client: Emit newData
     end
-    
+
     Client->>WS: Change interval
     WS->>CC: Recalculate candlesticks
     CC->>Client: Send updated data
@@ -101,6 +101,7 @@ npm install
 ## Usage
 
 Start the server:
+
 ```bash
 npm start
 # or
@@ -128,12 +129,15 @@ Edit `config/config.js`:
 ## API Endpoints
 
 ### GET `/api/candlesticks`
+
 Retrieves historical candlestick data.
 
 **Query Parameters:**
+
 - `interval` (number): Candlestick interval in seconds (10, 30, or 60)
 
 **Response:**
+
 ```javascript
 {
   candlesticks: [
@@ -142,26 +146,29 @@ Retrieves historical candlestick data.
       open: 500000,
       close: 510000,
       high: 520000,
-      low: 490000
-    }
-  ]
+      low: 490000,
+    },
+  ];
 }
 ```
 
 ### POST `/api/interval`
+
 Updates the candlestick interval for real-time streaming.
 
 **Body:**
+
 ```javascript
 {
-  interval: 10 | 30 | 60  // seconds
+  interval: 10 | 30 | 60; // seconds
 }
 ```
 
 **Response:**
+
 ```javascript
 {
-  success: true
+  success: true;
 }
 ```
 
@@ -170,6 +177,7 @@ Updates the candlestick interval for real-time streaming.
 ### Server → Client
 
 #### `connection`
+
 Emitted when a client successfully connects.
 
 ```javascript
@@ -179,6 +187,7 @@ socket.on('connection', (connected) => {
 ```
 
 #### `disconnect`
+
 Emitted when a client disconnects.
 
 ```javascript
@@ -188,6 +197,7 @@ socket.on('disconnect', (disconnected) => {
 ```
 
 #### `newData`
+
 Emitted at the configured interval with new candlestick data.
 
 ```javascript
@@ -209,6 +219,7 @@ socket.on('newData', (data) => {
 ### Client → Server
 
 #### `start`
+
 Client emits this to begin receiving real-time data.
 
 ```javascript
@@ -283,8 +294,9 @@ winston.error('Error occurred', error);
 To add new candlestick intervals:
 
 1. Update `config.js`:
+
 ```javascript
-intervalRates: [10, 30, 60, 120]  // Add 120 seconds
+intervalRates: [10, 30, 60, 120]; // Add 120 seconds
 ```
 
 2. The system automatically handles the new interval
@@ -306,8 +318,8 @@ MIT License - see [LICENSE](../LICENSE) file for details.
 
 ## Author
 
-* **Or Assayag** - [orassayag](https://github.com/orassayag)
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- **Or Assayag** - [orassayag](https://github.com/orassayag)
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
