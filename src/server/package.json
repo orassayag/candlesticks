@@ -64,6 +64,7 @@
     ".gitignore",
     ".prettierrc",
     "index.js",
+    "knip.json",
     "logfile.log",
     "package-lock.json",
     "package.json",

@@ -1,10 +1,21 @@
 # Candlesticks
 
-A real-time financial charting application that generates and displays candlestick price charts with configurable intervals. Built with React.js and Node.js using WebSocket technology for live data streaming.
+Candlesticks is a real-time financial charting application that simulates market activity and visualizes price movements through interactive candlestick charts.
 
-Built in December 2018. This full-stack JavaScript application simulates market data generation, processes it into candlestick format, and visualizes it in real-time using Google Charts.
+Built in December 2018 using React.js, Node.js, Express, Socket.io, and Google Charts, the application generates live price streams, aggregates them into OHLC (Open, High, Low, Close) candlesticks, and broadcasts updates to connected clients via WebSockets. The project showcases real-time data processing, server-side caching, historical data retrieval, and dynamic interval-based charting within a full-stack JavaScript architecture.
 
 ## Features
+
+- 📈 Real-time candlestick chart visualization with Google Charts
+- 🔄 WebSocket-based live price streaming
+- 📊 Dynamic OHLC (Open, High, Low, Close) aggregation
+- ⏱️ Multi-interval support (10s, 30s, 60s)
+- 💾 Historical data retrieval and server-side caching
+- 🚀 Full-stack JavaScript architecture
+- ⚡ Hot-reloading development server
+- 🧪 Pre-configured ESLint for code quality
+- 📱 Responsive React.js frontend
+- 🛠️ Modular, well-organized codebase
 
 ### Core Capabilities
 
@@ -391,12 +402,97 @@ Everyone is welcome to contribute. Contributing doesn't just mean submitting pul
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
+## Development
+
+### Code Quality
+
+**Lint code:**
+
+```bash
+# Server
+cd server && npm run lint
+
+# Client
+cd client && npm run lint
+```
+
+### Testing
+
+**Run tests:**
+
+```bash
+cd client && npm test
+```
+
+### Building
+
+**Build for production:**
+
+```bash
+cd client && npm run build
+```
+
+### Running in Development Mode
+
+**Start server:**
+
+```bash
+cd server && npm start
+```
+
+**Start client (with hot-reload):**
+
+```bash
+cd client && npm start
+```
+
 ## Best Practices
 
 - **Code Quality**: Ensure all code passes linting before submission.
 - **Component Reusability**: Build modular React components for better maintainability.
 - **Error Handling**: Implement robust error handling on both client and server.
 - **Documentation**: Keep comments and documentation up to date with code changes.
+
+## Troubleshooting
+
+### Port Already in Use
+
+If port 3000 or 3001 is already in use:
+
+**Server:**
+
+```javascript
+// Edit server/config/config.js
+port: 3001; // Change to available port
+```
+
+**Client:**
+
+```javascript
+// Edit client/src/settings/settings.js
+api_base_url: 'http://localhost:3001/'; // Match server port
+```
+
+### WebSocket Connection Failed
+
+1. Verify server is running
+2. Check server URL in client settings
+3. Check browser console for errors
+4. Disable browser extensions that may block WebSocket connections
+
+### Data Not Appearing
+
+1. Wait at least 10 seconds for initial data collection
+2. Check browser console for errors
+3. Verify server is generating data (check server logs)
+4. Refresh the page and try again
+
+### Build Errors
+
+1. Delete `node_modules` folders in both client and server
+2. Delete `package-lock.json` files
+3. Re-run `npm install` in both server and client directories
+4. Ensure Node.js version compatibility
 
 ## Support
 

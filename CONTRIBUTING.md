@@ -15,8 +15,8 @@ If you find a bug or have a feature request:
    - Clear title and description
    - Steps to reproduce (for bugs)
    - Expected vs actual behavior
-   - Error messages or console logs (if applicable)
-   - Your environment details (OS, Node version, browser)
+   - Error codes (if applicable)
+   - Your environment details (OS, Node version)
 
 ### Submitting Pull Requests
 
@@ -34,78 +34,46 @@ If you find a bug or have a feature request:
 
 This project uses:
 
-- **JavaScript (ES6+)** for both client and server
-- **React.js** for the frontend
-- **Node.js/Express** for the backend
+- **TypeScript** with strict type checking
 - **ESLint** for code quality
+- **Prettier** for code formatting
+- **InversifyJS** for dependency injection
 
 Before submitting:
 
 ```bash
-# Server
-cd candlesticks/server
-npm install
-npm run lint
-node index.js  # Test server
-
-# Client
-cd candlesticks/client
-npm install
-npm run lint
-npm start  # Test client
+pnpm format
+pnpm lint
+pnpm build
+pnpm test
 ```
 
 ### Coding Standards
 
-1. **Code Structure**: Follow the existing project structure
-   - Server: Keep logic separated in `/services`, `/utils`, `/startup`
-   - Client: Follow component-based architecture in `/src/components`
-2. **Error Handling**: Use proper error handling with Winston logging on server
-3. **WebSocket Communication**: Follow existing Socket.io patterns
-4. **Naming**: Use clear, descriptive names for variables and functions
-5. **Comments**: Add explanatory comments for complex logic
-6. **No Hardcoded Values**: Use configuration files for settings
+1. **Dependency Injection**: Use @injectable decorators for services
+2. **Error handling**: All errors must include unique error codes (see `misc/error_index.txt`)
+3. **Logging**: Use structured Logger instead of console.log
+4. **Type safety**: Avoid using `any` - define proper types
+5. **Domain organization**: Place code in appropriate domain folders (not utils/)
+6. **Naming**: Use clear, descriptive names for variables and functions
 
 ### Adding New Features
 
 When adding new features:
 
-**Server-side:**
+1. Create appropriate types in `src/types/`
+2. Add service logic in `src/services/` with DI
+3. Update scripts in `src/scripts/` if needed
+4. Add error codes and update `misc/error_index.txt`
+5. Test thoroughly with vitest
 
-1. Add configurations in `config/config.js`
-2. Create utilities in `utils/` folder
-3. Add services in `services/` folder
-4. Update routes in `startup/routes.js`
-5. Test with multiple clients
+### Error Code Management
 
-**Client-side:**
+When adding new errors:
 
-1. Create reusable components in `src/components/`
-2. Add API routes in `src/api/routes/`
-3. Update settings in `src/settings/settings.js`
-4. Ensure responsive design
-5. Test in multiple browsers
-
-### Testing Guidelines
-
-1. **Server Testing**:
-   - Start server and verify console logs
-   - Test WebSocket connections
-   - Verify data generation at correct intervals
-   - Test interval switching functionality
-
-2. **Client Testing**:
-   - Verify chart renders correctly
-   - Test real-time data updates
-   - Test interval selection
-   - Test historical data loading
-   - Check responsive design
-
-3. **Integration Testing**:
-   - Test client-server communication
-   - Verify data synchronization
-   - Test reconnection scenarios
-   - Test multiple concurrent clients
+1. Use the next available error code from `misc/error_index.txt`
+2. Format: `[ERROR-XXXXXXX]` at the start of the error message
+3. Document the error in `misc/error_index.txt`
 
 ## Questions or Need Help?
 

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": [
     "config/jest/*.js",
     "src/api/**/*.{js,jsx,tsx}",
@@ -14,6 +15,28 @@
     "config/**/*.{js,ts}",
     "scripts/**/*.js"
   ],
-  "ignoreDependencies": [""],
+  "ignoreDependencies": [
+    "@babel/core",
+    "@svgr/webpack",
+    "babel-core",
+    "babel-jest",
+    "babel-polyfill",
+    "babel-runtime",
+    "identity-obj-proxy",
+    "promise",
+    "react-app-polyfill",
+    "react-router",
+    "resolve",
+    "sass-loader",
+    "sw-precache-webpack-plugin",
+    "whatwg-fetch",
+    "eslint-plugin-flowtype",
+    "eslint-plugin-import",
+    "eslint-plugin-jsx-a11y",
+    "less",
+    "less-watch-compiler",
+    "react-test-renderer",
+    "webpack-cli"
+  ],
   "ignoreExportsUsedInFile": true
 }
