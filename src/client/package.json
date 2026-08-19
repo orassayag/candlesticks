@@ -124,7 +124,7 @@
   },
   "dependencies": {
     "@babel/core": "7.1.0",
-    "@svgr/webpack": "2.4.1",
+    "@svgr/webpack": "8.1.0",
     "autoprefixer": "^9.2.1",
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
@@ -145,7 +145,7 @@
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "moment": "^2.22.2",
-    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "optimize-css-assets-webpack-plugin": "6.0.1",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
