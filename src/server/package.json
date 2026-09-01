@@ -82,7 +82,7 @@
     "express-async-errors": "^3.0.0",
     "moment": "^2.22.2",
     "node-cache": "^4.2.0",
-    "socket.io": "^2.1.1",
+    "socket.io": "^4.8.3",
     "winston": "^2.4.0"
   },
   "devDependencies": {}
